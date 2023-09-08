@@ -1,0 +1,31 @@
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+*.js
+*.js.map
+# testing
+/coverage
+/lib
+/dist/
+
+# production
+/build
+
+# misc
+.DS_Store
+
+# debug
+npm-debug.log*
+
+# local env files
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+/.idea/
+/.history
+/.vscode
+
+/package-lock.json

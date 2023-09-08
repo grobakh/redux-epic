@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "strict": true,
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "target": "ESNext",
+    "jsx": "react",
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": "./",
+    "skipLibCheck": true,
+    "declaration": true,
+    "outDir": "./lib/es6",
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"]
+}

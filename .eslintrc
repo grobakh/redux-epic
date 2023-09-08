@@ -1,0 +1,181 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "env": {
+    "es6": true,
+    "browser": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true
+    }
+  },
+  "plugins": [
+    "react"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
+  "overrides": [
+    //typescipt
+    {
+      "files": [
+        "*.ts",
+        "*.tsx"
+      ],
+      "excludedFiles": [
+        "*.js",
+        "*.jsx"
+      ],
+      "extends": [
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:react/recommended"
+      ],
+      "plugins": [
+        "react",
+        "@typescript-eslint"
+      ],
+      "rules": {
+        "react/display-name": "off",
+        "@typescript-eslint/no-use-before-define": "off",
+        "react/prop-types": "off",
+        "@typescript-eslint/member-delimiter-style": 2,
+        "@typescript-eslint/naming-convention": [
+          "error",
+          {
+            "selector": "interface",
+            "format": [
+              "PascalCase"
+            ],
+            "custom": {
+              "regex": "^I[A-Z]",
+              "match": true
+            }
+          },
+          {
+            "selector": "enum",
+            "format": [
+              "PascalCase"
+            ],
+            "custom": {
+              "regex": "^E[A-Z]",
+              "match": true
+            }
+          }
+        ],
+        "@typescript-eslint/no-empty-interface": [
+          "error",
+          {
+            "allowSingleExtends": true
+          }
+        ]
+      }
+    },
+    //webpack
+    {
+      "files": [
+        "webpack.*.js",
+        "jest.*.js"
+      ],
+      "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:node/recommended"
+      ],
+      "plugins": [
+        "react",
+        "node"
+      ],
+      "rules": {
+        "node/no-unpublished-require": "off"
+      }
+    }
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      "webpack": {
+        "config": "webpack.common.js"
+      }
+    }
+  },
+  "globals": {
+    "window": true,
+    "describe": true,
+    "it": true
+  },
+  "rules": {
+    "complexity": [
+      "warn",
+      {
+        "max": 7
+      }
+    ],
+    "indent": [
+      "error",
+      2
+    ],
+    "quotes": [
+      2,
+      "single",
+      {
+        "avoidEscape": true,
+        "allowTemplateLiterals": true
+      }
+    ],
+    "max-len": [
+      "error",
+      120
+    ],
+    "import/extensions": "off",
+    "jsx-a11y/no-static-element-interactions": "off",
+    "jsx-a11y/no-noninteractive-element-interactions": "off",
+    "jsx-a11y/no-autofocus": "off",
+    "react/jsx-tag-spacing": "off",
+    "lines-between-class-members": [
+      "error",
+      "always",
+      {
+        "exceptAfterSingleLine": true
+      }
+    ],
+    "comma-dangle": [
+      "error",
+      "never"
+    ],
+    "padded-blocks": [
+      "error",
+      "never"
+    ],
+    "no-multiple-empty-lines": [
+      "error",
+      {
+        "max": 2
+      }
+    ],
+    "arrow-parens": [
+      "error",
+      "always"
+    ],
+    "no-confusing-arrow": "off",
+    "react/forbid-prop-types": "off",
+    "no-plusplus": "off",
+    "no-restricted-properties": "off",
+    "no-restricted-imports": [
+      "error",
+      {
+        "paths": [
+          {
+            "name": "lodash",
+            "message": "Please use specific module in lodash/*"
+          }
+        ]
+      }
+    ]
+  }
+}

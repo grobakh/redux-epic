@@ -1,0 +1,17 @@
+Publish_Projects_Widgets:
+  stage: deploy
+  only:
+    - master
+  image: protos-docker.artifactory.semrush.net/node
+  before_script:
+    - node -e "console.log('_auth = ' + Buffer.from('$ARTIFACTORY_USER:$ARTIFACTORY_PASS').toString('base64'))" > ~/.npmrc
+    - echo "email = $ARTIFACTORY_USER" >> ~/.npmrc
+    - echo "always-auth = true" >> ~/.npmrc
+    - git config --global user.email "$PUSH_USER@semrush.com"
+    - git config --global user.name "$PUSH_USER"
+  script:
+    - npm version patch -m "[ci skip] %s"
+    - git push "https://$PUSH_USER:$PUSH_TOKEN@gitlab.semrush.net/protos-team/frontend-common.git" HEAD:master -o ci.skip
+    - npm install --legacy-peer-deps
+    - npm run build
+    - npm publish
