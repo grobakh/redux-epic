@@ -23,12 +23,10 @@ npm install redux-epic-middleware
 #### Define your epics:
 
 ```
-const epics = {
-  user: {
+const userEpics = {
     FETCH_USER: (payload, state) => {
       // Fetch user logic here...
     }
-  }
 };
 ```
 
@@ -37,7 +35,7 @@ const epics = {
 ```
 import {createEpicMiddleware} from 'redux-epic-middleware';
 
-const epicMiddleware = createEpicMiddleware(epics);
+const epicMiddleware = createEpicMiddleware(userEpics);
 const store = createStore(rootReducer, applyMiddleware(epicMiddleware));
 ```
 
