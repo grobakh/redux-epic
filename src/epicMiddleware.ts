@@ -1,10 +1,15 @@
-import { Middleware } from 'redux';
+import { Middleware } from "redux";
 
 type TEpicFunction = <TStore>(payload: any, state: TStore) => void;
 
-export function epicMiddleware<TStore>(epics: Record<string, Record<string, TEpicFunction>>): Middleware {
-  function runEpicFunction(epicFunction: TEpicFunction,
-    action: { type: string; payload: any }, state: TStore) {
+export function createEpicMiddleware<TStore>(
+  epics: Record<string, Record<string, TEpicFunction>>
+): Middleware {
+  function runEpicFunction(
+    epicFunction: TEpicFunction,
+    action: { type: string; payload: any },
+    state: TStore
+  ) {
     epicFunction(action.payload, state);
   }
 
@@ -22,4 +27,4 @@ export function epicMiddleware<TStore>(epics: Record<string, Record<string, TEpi
     next(action);
     runEpic(action, store.getState());
   };
-};
+}

@@ -1,1 +1,1 @@
-export { epicMiddleware } from './epicMiddleware'
+export { createEpicMiddleware } from "./epicMiddleware";
