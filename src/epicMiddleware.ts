@@ -1,9 +1,9 @@
 import { Middleware } from "redux";
 
-type TEpicFunction = <TStore>(state: TStore, payload: any) => void;
+type TEpicFunction<TStore> = (state: TStore, payload: any) => void;
 
 export function createEpicMiddleware<TStore>(
-  epics: Record<string, TEpicFunction>
+  epics: Record<string, TEpicFunction<TStore>>
 ): Middleware {
   const runEpic = (state: TStore, action: { type: string; payload: any }) => {
     for (const [epicActionType, epicFunction] of Object.entries(epics)) {
