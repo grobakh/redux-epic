@@ -1,0 +1,30 @@
+# Directories
+node_modules/
+dist/
+*.log
+
+# TypeScript
+**/*.ts
+!**/*.d.ts
+tsconfig.json
+
+# Version Control
+.git/
+.gitignore
+
+# Build tools and config files
+*.lock
+yarn-error.log
+
+# Testing and CI
+*.test.ts
+*.test.js
+coverage/
+tests/
+.travis.yml
+.jest.config.js
+
+# Documentation and other assets
+docs/
+assets/
+readme.md

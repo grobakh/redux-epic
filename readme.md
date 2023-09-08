@@ -2,6 +2,8 @@
 
 A Redux middleware for handling side effects based on dispatched actions.
 
+[View redux-epic-middleware on npm](https://www.npmjs.com/package/redux-epic-middleware)
+
 ## Overview
 
 The Redux Epic Middleware allows you to define "epic functions" that react to dispatched actions and potentially carry out side effects. This provides an elegant way to manage asynchronous operations, logging, data fetching, and more based on the actions dispatched to the Redux store.
