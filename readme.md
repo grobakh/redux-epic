@@ -35,7 +35,7 @@ const epics = {
 #### Add the middleware to your store:
 
 ```
-import createEpicMiddleware from 'redux-epic-middleware';
+import {createEpicMiddleware} from 'redux-epic-middleware';
 
 const epicMiddleware = createEpicMiddleware(epics);
 const store = createStore(rootReducer, applyMiddleware(epicMiddleware));
