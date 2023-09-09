@@ -1,7 +1,7 @@
 {
   "name": "redux-epic-middleware",
   "declaration": true,
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A Redux middleware for handling side effects based on dispatched actions.",
   "main": "lib/cjs/index.js",
   "module": "lib/es6/index.js",
