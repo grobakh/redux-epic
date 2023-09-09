@@ -26,6 +26,10 @@ npm install redux-epic-middleware
 const userEpics = {
     FETCH_USER: (state, payload) => {
       // Fetch user logic here...
+    },
+
+    CHANGE_USER_EMAIL: (state, payload) => {
+      // Send some analytics from event...
     }
 };
 ```
