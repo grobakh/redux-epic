@@ -10,7 +10,11 @@ The Redux Epic Middleware allows you to define "epic functions" that react to di
 
 ## Execution order
 
-**Important**: Epics run after the Redux reducer has executed, ensuring that the state within the epics is always up-to-date after all reducers have processed the action.
+- **Important**: Epics run after the Redux reducer has executed, ensuring that the state within the epics is always up-to-date after all reducers have processed the action.
+
+- It's safe to dispatch additional store actions directly from your epics.
+
+- If you're using asynchronous functions as epics (e.g., for fetching data), you can use the await keyword and then dispatch further Redux actions after the async operations are completed.
 
 ## Installation
 
@@ -24,11 +28,18 @@ npm install redux-epic-middleware
 
 ```
 const userEpics = {
-    FETCH_USER: (state, payload) => {
-      // Fetch user logic here...
-    },
+    FETCH_USER: async (state, payload, dispatch) => {
+      try {
+        const response = await fetch(`https://api.example.com/user/${payload.id}`);
+        const user = await response.json();
 
-    CHANGE_USER_EMAIL: (state, payload) => {
+        dispatch({ type: 'FETCH_USER_SUCCESS', payload: user });
+      } catch (error) {
+        dispatch({ type: 'FETCH_USER_FAILURE', payload: error });
+      }
+    }
+
+    FETCH_USER_FAILURE: (state, payload) => {
       // Send some analytics from event...
     }
 };
