@@ -3,6 +3,18 @@
   "declaration": true,
   "version": "1.0.6",
   "description": "A Redux middleware for handling side effects based on dispatched actions.",
+  "keywords": [
+    "redux",
+    "middleware",
+    "epic",
+    "async",
+    "side-effects",
+    "redux-middleware",
+    "state",
+    "dispatch",
+    "action",
+    "effects"
+  ],
   "main": "lib/cjs/index.js",
   "module": "lib/es6/index.js",
   "types": "lib/es6/index.d.ts",
