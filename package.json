@@ -1,7 +1,7 @@
 {
   "name": "redux-epic-middleware",
   "declaration": true,
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "A Redux middleware for handling side effects based on dispatched actions.",
   "keywords": [
     "redux",
